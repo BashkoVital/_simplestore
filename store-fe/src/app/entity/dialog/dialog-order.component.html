@@ -1,0 +1,30 @@
+<div>
+  <h1 mat-dialog-title>Добавить заказ</h1>
+</div>
+
+<div mat-dialog-content>
+  <form [formGroup]="addOrderForm">
+    <mat-form-field hidden appearance="outline">
+      <mat-label>Id</mat-label>
+      <input formControlName="idOrder" matInput placeholder="Placeholder">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Клиент</mat-label>
+      <input formControlName="client" matInput placeholder="Клиент">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Дата заказа</mat-label>
+      <input formControlName="date" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Адрес</mat-label>
+      <input formControlName="address" matInput placeholder="Адрес">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="primary" mat-dialog-close=""> Закрыть </button>
+  <button mat-raised-button color="warn" (click)="addOrder()"> {{actionBtn}} </button>
+</div>

@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+//        maven {
+//            url "https://repo.spring.io/release"
+//        }
+//        maven {
+//            url "https://repository.jboss.org/maven2"
+//        }
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'simplestore'
+include 'store-be'
+include 'store-fe'
+
+project(":store-fe").projectDir = file("store-fe")

@@ -1,0 +1,25 @@
+plugins {
+  id 'java'
+  id "com.github.node-gradle.node" version "3.0.1"
+}
+
+
+node {
+  version = '18.10.0'
+  npmVersion = '8.1.0'
+  download = true
+  workDir = file("${project.buildDir}/node")
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+task buildApp(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+buildApp.dependsOn(npm_install)
+
+
+
+
+
+
